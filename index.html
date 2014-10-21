@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>AJAX with PHP and JSON</title>
+  <link rel="stylesheet" href="toastr.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.min.css">
+</head>
+<body>
+  <div class="text-right"><a href=""></a>Source Code </div>
+  
+  <br><br><div class="row">
+    <form class="search-form">  
+    <div class="small-4 small-offset-4 columns">
+      <input type="text" placeholder="Search" id="movie-field">
+    </div>
+    <div class="small-4 columns">  
+      <input type="submit" class="button tiny round" value="Search">
+    </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <div id="movie-list"></div>
+  </div>
+
+  <script type="text/handlebars" id="movie-template">
+    <div class="movies">
+      <ul class="pricing-table">
+        <li class="title">{{title}}</li>
+        <li class="price"><img src="{{posters.thumbnail}}" width="100"></li>
+        {{#if synopsis}}
+        <li class="description">{{synopsis}}</li>
+        {{else}}
+        <li class="description">Synopsis unavailable</li>
+        {{/if}}
+        <li class="bullet-item">
+          <strong>Score:</strong></br>
+          Audience Rating: {{ratings.audience_rating}}<br>
+          Audience Score: {{ratings.audience_score}}
+        </li>
+        <li class="bullet-item">
+          <ul><strong>Cast:</strong><br>
+          {{#each abridged_cast}}
+            <li>{{name}}</li>
+          {{/each}}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/js/foundation.min.js"></script>
+   
+  
+  <script src="toastr.js"></script>
+  <script src="handlebars-v2.0.0.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
